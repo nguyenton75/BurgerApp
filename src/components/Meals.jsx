@@ -5,7 +5,6 @@ export default function Meals() {
   const [loadedMeals, setLoadedMeals] = useState([]);
   async function fetchMeals() {
     const response = await fetch("http://localhost:3000/meals");
-    console.log("sdgjkesng", response);
     if (!response.ok) {
       // ...
     }
@@ -18,12 +17,12 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
-  console.log("qwwq", loadedMeals);
   return (
     <ul id="meals">
       {loadedMeals.map((meal) => (
-        // <li key={meal.id}>{meal.name}</li>
+        <li key={meal.id}>{meal.name}
         <MealItem meal={meal} />
+        </li>
       ))}
     </ul>
   );
