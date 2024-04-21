@@ -1,32 +1,32 @@
-import Button from './UI/Button.jsx';
-import logoImg from '../assets/logo.jpg';
-import { useContext } from 'react';
-import CartContext from '../store/CartContext.jsx';
-import {UserProgressContext} from '../store/UserProgressContext.jsx';
+import Button from "./UI/Button.jsx";
+import logoImg from "../assets/logo.jpg";
+import { useContext } from "react";
+import CartContext from "../store/CartContext.jsx";
+import { UserProgressContext } from "../store/UserProgressContext.jsx";
 
 export default function Header() {
-    const cartCtx = useContext(CartContext);
-    const userProgressCtx = useContext(UserProgressContext);
-    
-    const totalCartItems = cartCtx.items.reduce((tottalNumberOfItems, item) => {
-        return tottalNumberOfItems + item.quantity;
-    }, 0);
+  const cartCtx = useContext(CartContext);
+  const userProgressCtx = useContext(UserProgressContext);
 
-    function handleShowCart() {
-        userProgressCtx.showCart();
-    }
+  const totalCartItems = cartCtx.items.reduce((tottalNumberOfItems, item) => {
+    return tottalNumberOfItems + item.quantity;
+  }, 0);
 
-    return(
+  function handleShowCart() {
+    userProgressCtx.showCart();
+  }
 
-      <header id="main-header" >
-        <div id="title">
-            <img src={logoImg} alt="A restaurent" />
-            <h1>ReactFood</h1>
-        </div>
-        <nav>
-            <Button textOnly onClick={handleShowCart}>
-                Cart ({totalCartItems})</Button>
-        </nav>
+  return (
+    <header id="main-header">
+      <div id="title">
+        <img src={logoImg} alt="A restaurent" />
+        <h1>ReactFood</h1>
+      </div>
+      <nav>
+        <Button textOnly onClick={handleShowCart}>
+          Cart ({totalCartItems})
+        </Button>
+      </nav>
     </header>
-    );
+  );
 }
