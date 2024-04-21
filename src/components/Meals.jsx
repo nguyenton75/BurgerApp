@@ -14,7 +14,7 @@ export default function Meals() {
     }
     useEffect(() => {
  
-s
+
     fetchMeals();
     },[]);
 
